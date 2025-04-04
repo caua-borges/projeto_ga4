@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário de Contato</title>
+    <link rel="stylesheet" href="CSS/contato.css">
+    <script src="javaScript/contato.js"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P99VHDG4');</script>
+    <!-- End Google Tag Manager -->
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Contato</h1>
+        <form action="#" method="POST" class="formulario-contato">
+            <label for="name">Nome:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Mensagem:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <input type="radio" id="ga4" name="disciplina" value="ga4">
+            <label for="ga4">Quero aprender GA4</label><br>
+
+            <input type="radio" id="gtm" name="disciplina" value="gtm">
+            <label for="gtm">Quero aprender gtm</label><br>
+
+            <input type="radio" id="porra" name="disciplina" value="porra">
+            <label for="porra">Quero aprender porra nenhuma</label><br>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P99VHDG4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+</body>
+
+</html>

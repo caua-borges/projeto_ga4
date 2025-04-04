@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envio de Formulário</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P99VHDG4');</script>
+    <!-- End Google Tag Manager -->
+</head>
+
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="bg-white p-6 rounded-lg shadow-md w-full max-w-md">
+        <h2 class="text-2xl font-bold text-center mb-4">Envie seus dados</h2>
+        <form class="space-y-4" id="form">
+            <div>
+                <label for="nome" class="block font-medium">Nome</label>
+                <input type="text" id="nome" name="nome" required class="w-full p-2 border rounded-md">
+            </div>
+            <div>
+                <label for="email" class="block font-medium">E-mail</label>
+                <input type="email" id="email" name="email" required class="w-full p-2 border rounded-md">
+            </div>
+            <div>
+                <label for="mensagem" class="block font-medium">Mensagem</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required
+                    class="w-full p-2 border rounded-md"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600">Enviar</button>
+        </form>
+    </div>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P99VHDG4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!---Dar um push no dataLayer-->
+    <script>
+
+        async function hashEmail(email) {
+            const encoder = new TextEncoder();
+            const data = encoder.encode(email.trim().toLowerCase());
+            const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+            return Array.from(new Uint8Array(hashBuffer))
+                .map(b => b.toString(16).padStart(2, "0"))
+                .join("");
+        }
+
+        window.onload = function () {
+            document.querySelector('form').addEventListener('submit', async function (event) {
+                event.preventDefault();
+
+                const nome = document.getElementById('nome').value;
+                const mensagem = document.getElementById('mensagem').value;
+                const email = document.getElementById('email').value;
+
+                let hashedEmail = "";
+                if (email) {
+                    hashedEmail = await hashEmail(email);
+                }
+
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                    event: 'form-submit',
+                    name: nome,
+                    message: mensagem,
+                    email: hashedEmail
+                });
+
+                console.log("Formulário enviado!", { nome, mensagem, hashedEmail });
+            });
+        };
+
+    </script>
+
+    <!---Verificar se o formulário existe-->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log(document.querySelector('form'));
+        })
+    </script>
+
+</body>
+
+</html>

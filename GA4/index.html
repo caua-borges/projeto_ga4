@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Ga4</title>
+    <link rel="stylesheet" href="CSS/style.css">
+
+    <!-- Google Tag Manager -->
+    <script>(function (w, d, s, l, i) {
+            w[l] = w[l] || []; w[l].push({
+                'gtm.start':
+                    new Date().getTime(), event: 'gtm.js'
+            }); var f = d.getElementsByTagName(s)[0],
+                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-P99VHDG4');</script>
+    <!-- End Google Tag Manager -->
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XBNLZMSJZR"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-XBNLZMSJZR');
+    </script>
+
+    <script>
+        document.cookie = "chave=valor; expires=Wed, 05 Jan 2025 23:59:59 GMT; path=/";
+    </script>
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        params.set('query', 'string');
+        params.set('cabeca', 'rachada');
+        window.history.replaceState({}, '', `${window.location.pathname}?${params.toString()}`);
+    </script>
+
+    <script>
+        function getCookie(k) {
+            var cookies = " " + document.cookie;
+            var key = " " + k + "=";
+            var start = cookies.indexOf(key);
+
+            if (start === -1) return null;
+
+            var pos = start + key.length;
+            var last = cookies.indexOf(";", pos);
+
+            if (last !== -1) return cookies.substring(pos, last);
+
+            return cookies.substring(pos);
+        }
+
+
+        function setCookie(k, v, expira, path) {
+            if (!path) path = "/";
+
+            var d = new Date();
+            d.setTime(d.getTime() + (expira * 1000));
+
+            document.cookie = encodeURIComponent(k) + "=" + encodeURIComponent(v) + "; expires=" + d.toUTCString() + "; path=" + path;
+        }
+    </script>
+
+    <script>
+        setCookie("UserID", "as45dffhdsu", 3600);
+        var resultado = getCookie("Nome");
+        console.log(resultado);
+    </script>
+</head>
+
+<body>
+
+    <header>
+        <h1>Site Teste Ga4</h1>
+    </header>
+
+    <nav>
+
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#contato">Contato</a>
+        <a href="carrinho.html">Carrinho</a>
+        <a href="formulario.html">Preencher formulário</a>
+        <a href="compra.html">Comprar um produto</a>
+    </nav>
+
+    <section id="sobre">
+        <h2>Sobre</h2>
+        <p>Este é um site simples criado para testar a integração com o Google Analytics 4.</p>
+        <button></button>
+    </section>
+
+    <section id="servicos">
+        <h2>Serviços</h2>
+        <p>Oferecemos diversas funcionalidades para aprender sobre GA4.</p>
+        <button onclick="alert('Você clicou no botão Serviços!')" id="botao_descubra_mais">Descubra mais</button>
+    </section>
+
+    <section id="contato">
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações.</p>
+        <a href="contato.html"><button>Contato</button></a>
+    </section>
+
+    <button onclick="criarCookie()">Aceitar Cookies?</button>
+    <footer>
+        <p>Teste GA4 &copy; 2025</p>
+        <a href="sobre.html" class="link_pagina_sobre">Página
+            sobre</a>
+    </footer>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P99VHDG4" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+</body>
+
+</html>
